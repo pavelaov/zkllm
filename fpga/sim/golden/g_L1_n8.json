@@ -1,0 +1,130 @@
+{
+ "name": "g_L1_n8",
+ "lanes": 1,
+ "n": 8,
+ "mem": 0,
+ "step": 0,
+ "seed_f": "deadbeefcafef00d",
+ "seed_g": "8badf00d5eedbeef",
+ "device_rounds": 8,
+ "golden": {
+  "n": 8,
+  "lanes": 1,
+  "device_rounds": 8,
+  "claim": "0000000000000000ea52fdecc44ff582",
+  "challenges": [
+   "8da860d4dee477d6940c37641b4721ed",
+   "6abb48d1060a0f21f8b35284b4a144b6",
+   "ec92aa4c7970ea58d5826a56c6f3ac40",
+   "1a26ee7605a0197807187514fb32d13c",
+   "49e54416a826c8c2945fc01fa3ab625b",
+   "e7b23bff765872749afdbfefcb1e4682",
+   "ef6da02125fb0d309ae412749c673b29",
+   "4d2008b94557b9e4ce90406f1ff3445e"
+  ],
+  "msgs": [
+   [
+    "000000000000000013f3c1e482efd6e4",
+    "0000000000000000d65f3c0841601e9e",
+    "0000000000000000406a20864cc5d1de"
+   ],
+   [
+    "fc339d703295178fafb7247c18df23f7",
+    "bf1f05bbcb17f4f5e6b0210a8dea5419",
+    "b521d7426aa59dd5eec379bb67b1ec7c"
+   ],
+   [
+    "417455aba6f8e8823c151a36239a1551",
+    "ad4009ebfd770a6c6acffe197120a206",
+    "9390ffbed1aee6f576c605f52b5b49b8"
+   ],
+   [
+    "7642d4bf1efe5268885c7c5639e83431",
+    "24120521064b5370c453f4448ca75a1f",
+    "b8b3ea49201b20693f0390d02f64c066"
+   ],
+   [
+    "34609d93f64036271a5adcd18e0eeab8",
+    "504ef56a383eb8cfb2d3951e44284e59",
+    "071f097fae9162a898a6511c1b30e00c"
+   ],
+   [
+    "7e7c7c7a5ef7dcfbca4a568e00451282",
+    "6d71acbbc9650fba0a26b0b3f43be983",
+    "427637fbcf2839755ab6147e7c7137d6"
+   ],
+   [
+    "2067cc0c4df88fd7d9b40c91826b45f4",
+    "e814c8ad817e252d94b837f391d8c4b1",
+    "b923355a1f5dc24ddd5bf97eccdd0c75"
+   ],
+   [
+    "1c6f46e12ac16a3afc8003d8519a6032",
+    "f142e32e3349e17f41e2ebd89df6d774",
+    "8134626fb4ed4d91d40ab63605ee284f"
+   ]
+  ],
+  "lane_final_f": [
+   "b85fc607d4eea9eb1866f6e4e29af4b2"
+  ],
+  "lane_final_g": [
+   "ddd333aeccbad70c5ccbeac3d7218bd7"
+  ],
+  "full_final_f": "b85fc607d4eea9eb1866f6e4e29af4b2",
+  "full_final_g": "ddd333aeccbad70c5ccbeac3d7218bd7",
+  "all_challenges": [
+   "8da860d4dee477d6940c37641b4721ed",
+   "6abb48d1060a0f21f8b35284b4a144b6",
+   "ec92aa4c7970ea58d5826a56c6f3ac40",
+   "1a26ee7605a0197807187514fb32d13c",
+   "49e54416a826c8c2945fc01fa3ab625b",
+   "e7b23bff765872749afdbfefcb1e4682",
+   "ef6da02125fb0d309ae412749c673b29",
+   "4d2008b94557b9e4ce90406f1ff3445e"
+  ],
+  "all_msgs": [
+   [
+    "000000000000000013f3c1e482efd6e4",
+    "0000000000000000d65f3c0841601e9e",
+    "0000000000000000406a20864cc5d1de"
+   ],
+   [
+    "fc339d703295178fafb7247c18df23f7",
+    "bf1f05bbcb17f4f5e6b0210a8dea5419",
+    "b521d7426aa59dd5eec379bb67b1ec7c"
+   ],
+   [
+    "417455aba6f8e8823c151a36239a1551",
+    "ad4009ebfd770a6c6acffe197120a206",
+    "9390ffbed1aee6f576c605f52b5b49b8"
+   ],
+   [
+    "7642d4bf1efe5268885c7c5639e83431",
+    "24120521064b5370c453f4448ca75a1f",
+    "b8b3ea49201b20693f0390d02f64c066"
+   ],
+   [
+    "34609d93f64036271a5adcd18e0eeab8",
+    "504ef56a383eb8cfb2d3951e44284e59",
+    "071f097fae9162a898a6511c1b30e00c"
+   ],
+   [
+    "7e7c7c7a5ef7dcfbca4a568e00451282",
+    "6d71acbbc9650fba0a26b0b3f43be983",
+    "427637fbcf2839755ab6147e7c7137d6"
+   ],
+   [
+    "2067cc0c4df88fd7d9b40c91826b45f4",
+    "e814c8ad817e252d94b837f391d8c4b1",
+    "b923355a1f5dc24ddd5bf97eccdd0c75"
+   ],
+   [
+    "1c6f46e12ac16a3afc8003d8519a6032",
+    "f142e32e3349e17f41e2ebd89df6d774",
+    "8134626fb4ed4d91d40ab63605ee284f"
+   ]
+  ],
+  "seed_f": "deadbeefcafef00d",
+  "seed_g": "8badf00d5eedbeef"
+ }
+}

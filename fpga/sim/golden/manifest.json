@@ -1,0 +1,237 @@
+{
+ "generator": "fpga/host/make_golden.py",
+ "golden_model": "src/edgecert/sumfold.py",
+ "cases": [
+  {
+   "name": "g_L1_n4",
+   "lanes": 1,
+   "n": 4,
+   "mem": 0,
+   "step": 0,
+   "seed_f": "0123456789abcdef",
+   "seed_g": "fedcba9876543210",
+   "device_rounds": 4
+  },
+  {
+   "name": "g_L1_n6",
+   "lanes": 1,
+   "n": 6,
+   "mem": 0,
+   "step": 0,
+   "seed_f": "1234567890abcdef",
+   "seed_g": "0f1e2d3c4b5a6978",
+   "device_rounds": 6
+  },
+  {
+   "name": "g_L1_n8",
+   "lanes": 1,
+   "n": 8,
+   "mem": 0,
+   "step": 0,
+   "seed_f": "deadbeefcafef00d",
+   "seed_g": "8badf00d5eedbeef",
+   "device_rounds": 8
+  },
+  {
+   "name": "g_L2_n6",
+   "lanes": 2,
+   "n": 6,
+   "mem": 0,
+   "step": 0,
+   "seed_f": "243f6a8885a308d3",
+   "seed_g": "13198a2e03707344",
+   "device_rounds": 5
+  },
+  {
+   "name": "g_L2_n8",
+   "lanes": 2,
+   "n": 8,
+   "mem": 0,
+   "step": 0,
+   "seed_f": "a4093822299f31d0",
+   "seed_g": "082efa98ec4e6c89",
+   "device_rounds": 7
+  },
+  {
+   "name": "g_L4_n8",
+   "lanes": 4,
+   "n": 8,
+   "mem": 0,
+   "step": 0,
+   "seed_f": "452821e638d01377",
+   "seed_g": "be5466cf34e90c6c",
+   "device_rounds": 6
+  },
+  {
+   "name": "g_L4_n10",
+   "lanes": 4,
+   "n": 10,
+   "mem": 0,
+   "step": 0,
+   "seed_f": "c0ac29b7c97c50dd",
+   "seed_g": "3f84d5b5b5470917",
+   "device_rounds": 8
+  },
+  {
+   "name": "g_L8_n10",
+   "lanes": 8,
+   "n": 10,
+   "mem": 0,
+   "step": 0,
+   "seed_f": "9216d5d98979fb1b",
+   "seed_g": "d1310ba698dfb5ac",
+   "device_rounds": 7
+  },
+  {
+   "name": "g_L2_n5_canon",
+   "lanes": 2,
+   "n": 5,
+   "mem": 0,
+   "step": 0,
+   "seed_f": "2ff97e4714cd4ddd",
+   "seed_g": "6a2b51650bc99dc4",
+   "device_rounds": 4
+  },
+  {
+   "name": "g_L8_n4_r1",
+   "lanes": 8,
+   "n": 4,
+   "mem": 0,
+   "step": 0,
+   "seed_f": "2ffd72dbd01adfb7",
+   "seed_g": "b8e1afed6a267e96",
+   "device_rounds": 1
+  },
+  {
+   "name": "s_L2_n6_step",
+   "lanes": 2,
+   "n": 6,
+   "mem": 0,
+   "step": 1,
+   "seed_f": "0801f2e2858efc16",
+   "seed_g": "636920d871574e69",
+   "device_rounds": 5
+  },
+  {
+   "name": "s_L8_n6_step",
+   "lanes": 8,
+   "n": 6,
+   "mem": 0,
+   "step": 1,
+   "seed_f": "a458fea3f4933d7e",
+   "seed_g": "0d95748f728eb658",
+   "device_rounds": 3
+  },
+  {
+   "name": "m_L1_n6_mixed",
+   "lanes": 1,
+   "n": 6,
+   "mem": 1,
+   "step": 0,
+   "seed_f": "0000000000000001",
+   "seed_g": "0000000000000002",
+   "device_rounds": 6
+  },
+  {
+   "name": "m_L1_n4_pm1",
+   "lanes": 1,
+   "n": 4,
+   "mem": 1,
+   "step": 0,
+   "seed_f": "0000000000000001",
+   "seed_g": "0000000000000002",
+   "device_rounds": 4
+  },
+  {
+   "name": "m_L1_n1_mixed",
+   "lanes": 1,
+   "n": 1,
+   "mem": 1,
+   "step": 0,
+   "seed_f": "0000000000000001",
+   "seed_g": "0000000000000002",
+   "device_rounds": 1
+  },
+  {
+   "name": "m_L1_n5_pm1base",
+   "lanes": 1,
+   "n": 5,
+   "mem": 1,
+   "step": 0,
+   "seed_f": "0000000000000001",
+   "seed_g": "0000000000000002",
+   "device_rounds": 5
+  },
+  {
+   "name": "m_L2_n6_zero",
+   "lanes": 2,
+   "n": 6,
+   "mem": 1,
+   "step": 0,
+   "seed_f": "0000000000000001",
+   "seed_g": "0000000000000002",
+   "device_rounds": 5
+  },
+  {
+   "name": "m_L2_n6_pm1",
+   "lanes": 2,
+   "n": 6,
+   "mem": 1,
+   "step": 0,
+   "seed_f": "0000000000000001",
+   "seed_g": "0000000000000002",
+   "device_rounds": 5
+  },
+  {
+   "name": "m_L2_n2_mixed",
+   "lanes": 2,
+   "n": 2,
+   "mem": 1,
+   "step": 0,
+   "seed_f": "0000000000000001",
+   "seed_g": "0000000000000002",
+   "device_rounds": 1
+  },
+  {
+   "name": "m_L4_n8_mixed",
+   "lanes": 4,
+   "n": 8,
+   "mem": 1,
+   "step": 0,
+   "seed_f": "0000000000000001",
+   "seed_g": "0000000000000002",
+   "device_rounds": 6
+  },
+  {
+   "name": "m_L8_n6_mixed",
+   "lanes": 8,
+   "n": 6,
+   "mem": 1,
+   "step": 0,
+   "seed_f": "0000000000000001",
+   "seed_g": "0000000000000002",
+   "device_rounds": 3
+  },
+  {
+   "name": "m_L8_n4_pm1",
+   "lanes": 8,
+   "n": 4,
+   "mem": 1,
+   "step": 0,
+   "seed_f": "0000000000000001",
+   "seed_g": "0000000000000002",
+   "device_rounds": 1
+  },
+  {
+   "name": "s_L1_n5_mixed_step",
+   "lanes": 1,
+   "n": 5,
+   "mem": 1,
+   "step": 1,
+   "seed_f": "0000000000000001",
+   "seed_g": "0000000000000002",
+   "device_rounds": 5
+  }
+ ],
+ "field_vectors": 512
+}

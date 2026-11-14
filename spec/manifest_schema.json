@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edge-cert.invalid/spec/manifest_schema.json",
+  "title": "EDGE-CERT signed model manifest (v1)",
+  "description": "Publisher authorization of one numeric model: commitment, graph, tokenizer, quantizer, lookup tables, positional encoding, mask, decoding rule, adapters, proof configuration and rollback policy. Canonical encoding and signature rules: spec/inference_relation.md Section 2 and src/edgecert/runtime/manifest.py. Only the keywords type, enum, const, required, properties, additionalProperties, items, minItems, maxItems, minimum, maximum, pattern, minLength, anyOf and $ref are used, so the prototype validator covers the whole schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["body", "signature"],
+  "properties": {
+    "body": {"$ref": "#/$defs/body"},
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["alg", "key_id", "value"],
+      "properties": {
+        "alg": {"const": "Ed25519"},
+        "key_id": {"$ref": "#/$defs/key_id"},
+        "value": {"type": "string", "pattern": "^[0-9a-f]{128}$"}
+      }
+    }
+  },
+  "$defs": {
+    "hex32": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "key_id": {"type": "string", "pattern": "^[0-9a-f]{16}$"},
+    "name": {"type": "string", "pattern": "^[A-Za-z0-9_.:/+-]{1,128}$"},
+    "int_range": {"type": "array", "items": {"type": "integer"}, "minItems": 2, "maxItems": 2},
+    "body": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["manifest_version", "publisher", "model", "graph", "tokenizer", "quantizer",
+                   "lookup_tables", "positional_encoding", "attention_mask", "decoding", "adapters",
+                   "proof_system", "policy"],
+      "properties": {
+        "manifest_version": {"const": "edgecert-manifest/v1"},
+        "publisher": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "key_id", "alg", "public_key"],
+          "properties": {
+            "name": {"type": "string", "minLength": 1},
+            "key_id": {"$ref": "#/$defs/key_id"},
+            "alg": {"const": "Ed25519"},
+            "public_key": {"$ref": "#/$defs/hex32"}
+          }
+        },
+        "model": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["family", "version", "checkpoint_digest", "model_commitment", "commitment_scheme",
+                       "numeric_tier", "weights_visibility"],
+          "properties": {
+            "family": {"$ref": "#/$defs/name"},
+            "version": {"type": "string", "minLength": 1},
+            "checkpoint_digest": {"anyOf": [{"$ref": "#/$defs/hex32"}, {"type": "null"}]},
+            "model_commitment": {"$ref": "#/$defs/hex32"},
+            "commitment_scheme": {"enum": ["merkle-sha256/v1", "backend-pcs"]},
+            "numeric_tier": {"enum": ["EXACT_ORIGINAL", "AUTHORIZED_DERIVED", "APPROXIMATE"]},
+            "weights_visibility": {"enum": ["PUBLIC", "PRIVATE"]}
+          }
+        },
+        "graph": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["format", "graph_digest"],
+          "properties": {
+            "format": {"type": "string", "minLength": 1},
+            "graph_digest": {"$ref": "#/$defs/hex32"},
+            "spec": {"type": "object"}
+          }
+        },
+        "tokenizer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "version", "digest", "vocab_size", "eos_id", "pad_id"],
+          "properties": {
+            "id": {"type": "string", "minLength": 1},
+            "version": {"type": "string", "minLength": 1},
+            "digest": {"$ref": "#/$defs/hex32"},
+            "vocab_size": {"type": "integer", "minimum": 2},
+            "eos_id": {"type": "integer", "minimum": 0},
+            "pad_id": {"type": "integer", "minimum": -1}
+          }
+        },
+        "quantizer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["scheme", "weight_bits", "activation_bits", "rounding", "clamp", "layers"],
+          "properties": {
+            "scheme": {"type": "string", "minLength": 1},
+            "weight_bits": {"type": "integer", "minimum": 1, "maximum": 32},
+            "activation_bits": {"type": "integer", "minimum": 1, "maximum": 32},
+            "rounding": {"enum": ["RHAZ", "HALF_UP", "HALF_EVEN", "TRUNC_FLOOR"]},
+            "clamp": {"$ref": "#/$defs/int_range"},
+            "accumulator_bound": {"type": "integer", "minimum": 1},
+            "layers": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["name", "multiplier", "shift"],
+                "properties": {
+                  "name": {"$ref": "#/$defs/name"},
+                  "multiplier": {"type": "integer", "minimum": 1, "maximum": 2147483647},
+                  "shift": {"type": "integer", "minimum": 0, "maximum": 62},
+                  "activation": {"type": ["string", "null"]}
+                }
+              }
+            }
+          }
+        },
+        "lookup_tables": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "digest", "domain"],
+            "properties": {
+              "name": {"$ref": "#/$defs/name"},
+              "digest": {"$ref": "#/$defs/hex32"},
+              "domain": {"$ref": "#/$defs/int_range"}
+            }
+          }
+        },
+        "positional_encoding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "max_position"],
+          "properties": {
+            "kind": {"enum": ["LEARNED_ABSOLUTE", "ROPE", "NONE"]},
+            "max_position": {"type": "integer", "minimum": 1},
+            "tensor": {"type": ["string", "null"]}
+          }
+        },
+        "attention_mask": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind"],
+          "properties": {
+            "kind": {"enum": ["CAUSAL", "CAUSAL_SLIDING_WINDOW", "CAUSAL_WINDOW_PAD"]},
+            "window": {"type": ["integer", "null"], "minimum": 1}
+          }
+        },
+        "decoding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["rule", "tie_break", "eos_id", "max_new_tokens_cap"],
+          "properties": {
+            "rule": {"enum": ["GREEDY"]},
+            "tie_break": {"enum": ["LOWEST_INDEX"]},
+            "eos_id": {"type": "integer", "minimum": 0},
+            "max_new_tokens_cap": {"type": "integer", "minimum": 1}
+          }
+        },
+        "adapters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["adapter_id", "adapter_commitment", "combined_model_commitment", "target"],
+            "properties": {
+              "adapter_id": {"$ref": "#/$defs/name"},
+              "adapter_commitment": {"$ref": "#/$defs/hex32"},
+              "combined_model_commitment": {"$ref": "#/$defs/hex32"},
+              "target": {"$ref": "#/$defs/name"}
+            }
+          }
+        },
+        "proof_system": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["relation_id", "proof_config_id", "backend", "backend_version", "field",
+                       "challenge_field", "hash", "zero_knowledge", "succinct", "claimed_security_bits",
+                       "verifier_key_id", "setup"],
+          "properties": {
+            "relation_id": {"type": "string", "minLength": 1},
+            "proof_config_id": {"type": "string", "minLength": 1},
+            "backend": {"type": "string", "minLength": 1},
+            "backend_version": {"type": "string", "minLength": 1},
+            "field": {"type": "string"},
+            "challenge_field": {"type": "string"},
+            "hash": {"type": "string"},
+            "zero_knowledge": {"type": "boolean"},
+            "succinct": {"type": "boolean"},
+            "claimed_security_bits": {"type": ["integer", "null"], "minimum": 1},
+            "verifier_key_id": {"type": ["string", "null"]},
+            "setup": {"type": "string"}
+          }
+        },
+        "policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["policy_epoch", "rollback_protection", "issued_at", "not_after", "revokes"],
+          "properties": {
+            "policy_epoch": {"type": "integer", "minimum": 0},
+            "rollback_protection": {"enum": ["monotonic-epoch", "none"]},
+            "issued_at": {"type": "integer", "minimum": 0},
+            "not_after": {"type": ["integer", "null"], "minimum": 0},
+            "revokes": {"type": "array", "items": {"$ref": "#/$defs/hex32"}}
+          }
+        }
+      }
+    }
+  }
+}

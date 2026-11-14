@@ -1,0 +1,78 @@
+{
+ "name": "g_L8_n4_r1",
+ "lanes": 8,
+ "n": 4,
+ "mem": 0,
+ "step": 0,
+ "seed_f": "2ffd72dbd01adfb7",
+ "seed_g": "b8e1afed6a267e96",
+ "device_rounds": 1,
+ "golden": {
+  "n": 4,
+  "lanes": 8,
+  "device_rounds": 1,
+  "claim": "000000000000000031d8655fdfac71ff",
+  "challenges": [
+   "01a7572fa433fe9d43edf620fb94d7f0"
+  ],
+  "msgs": [
+   [
+    "00000000000000009c7fb440989c806e",
+    "00000000000000009558b11e470ff192",
+    "00000000000000005cc5b1c79ec92668"
+   ]
+  ],
+  "lane_final_f": [
+   "aec2ab4a64eb1839b16fb7990858f12f",
+   "8917296610b1b4eef562936596685e15",
+   "df1b76639ccaaeb1c9c8a9ae703477c9",
+   "e6aa4a9c9c65a79d9aeb0b36a7fe9d46",
+   "b08281bf3535f370bc446581002cbb18",
+   "6447ee1d934dcd89e2dadf78ed864d0e",
+   "f99ed1174273c0a5f7df5a52d7658e6c",
+   "9588d9902b6e124babca36c85d0de651"
+  ],
+  "lane_final_g": [
+   "e4fe55c2686d79aa705a98e5c5f03420",
+   "b5fdb0903704c33d22693f577c2f8c65",
+   "493938296eff3566d3bd124a3639b390",
+   "2cb9cca623778c2b98d8cc21bcfde92f",
+   "7645c50a565ff3295c013a33cd333479",
+   "3f4e58c7652d8ed83ffef828ccafbf7a",
+   "3e5058f7fe293978ede72aba9aa7dc64",
+   "2f634ad1c3cdfadd22ee87d032f8a572"
+  ],
+  "full_final_f": "a0f2806f1e8d961c8cf7771642bc8b95",
+  "full_final_g": "facfc620f918b247b063dba0b478e02a",
+  "all_challenges": [
+   "01a7572fa433fe9d43edf620fb94d7f0",
+   "b4c2caa3a80d6947c0c8150de7346680",
+   "c36debebb5a6ac915a0660b6b6d3ae3f",
+   "4d6f32286062fe71e08e7e66821fa60f"
+  ],
+  "all_msgs": [
+   [
+    "00000000000000009c7fb440989c806e",
+    "00000000000000009558b11e470ff192",
+    "00000000000000005cc5b1c79ec92668"
+   ],
+   [
+    "2ecbbcaba1d52e7d7487bd142b73663b",
+    "71e848874158b8aed61d75575aae8c15",
+    "2fdf88e488c48b942281b476532ea237"
+   ],
+   [
+    "4825ae71adefabfa43fd20d1baba65ae",
+    "23536ab3615eda30b0a31de899829976",
+    "f31e202cf1b8214078973303af537a9a"
+   ],
+   [
+    "88aeeaaf7cf7e46c579b8be06d7e9963",
+    "c8ef02ee71053aa1a9706c92c17501b2",
+    "d712912925fef4cbe856470f53530c5a"
+   ]
+  ],
+  "seed_f": "2ffd72dbd01adfb7",
+  "seed_g": "b8e1afed6a267e96"
+ }
+}

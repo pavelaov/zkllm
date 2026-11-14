@@ -1,0 +1,46 @@
+{
+ "name": "m_L1_n1_mixed",
+ "lanes": 1,
+ "n": 1,
+ "mem": 1,
+ "step": 0,
+ "seed_f": "0000000000000001",
+ "seed_g": "0000000000000002",
+ "device_rounds": 1,
+ "golden": {
+  "n": 1,
+  "lanes": 1,
+  "device_rounds": 1,
+  "claim": "7b3bdc48a887a1674251299ab4b2ed62",
+  "challenges": [
+   "9582773db0831ba39c9541607a4a93a7"
+  ],
+  "msgs": [
+   [
+    "1a25255d80ad710cc52483c383f0ee36",
+    "6116b6eb27da305b7d2ca5d630c1ff2d",
+    "53b2af921677de0a63182748e5bd9543"
+   ]
+  ],
+  "lane_final_f": [
+   "757ae891858a4ab7c03361d693f49da2"
+  ],
+  "lane_final_g": [
+   "877d46db773189418670a8f592b7b598"
+  ],
+  "full_final_f": "757ae891858a4ab7c03361d693f49da2",
+  "full_final_g": "877d46db773189418670a8f592b7b598",
+  "all_challenges": [
+   "9582773db0831ba39c9541607a4a93a7"
+  ],
+  "all_msgs": [
+   [
+    "1a25255d80ad710cc52483c383f0ee36",
+    "6116b6eb27da305b7d2ca5d630c1ff2d",
+    "53b2af921677de0a63182748e5bd9543"
+   ]
+  ],
+  "seed_f": "0000000000000001",
+  "seed_g": "0000000000000002"
+ }
+}

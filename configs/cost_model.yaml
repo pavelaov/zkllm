@@ -1,0 +1,193 @@
+# CertSched cost model (C3). GENERATED: edit the generator.
+meta:
+  generated_utc: "2026-09-27T11:33:23+00:00"
+  generator: "bench/runners/sched_cost_model.py"
+  host: "<host>"
+  python: "3.14.7"
+  inputs_found:
+    cpu_bench:
+      n: 22
+      threads: 32
+      compiler: "gcc"
+      pairs_per_s_median: 1.89471e+08
+      contended: true
+      timestamp: "2026-09-27T11:33:21+00:00"
+    fpga_sim:
+      lanes: 4
+      n: 16
+      cycles_total: 25480
+work_factors:
+  c_matmul: 1
+  c_hadamard: 1
+  c_lookup: 2
+  c_open: 1
+  c_derive: 3
+  basis: "work per abstract element relative to one product-sumcheck element: LogUp needs an inverse column plus a two-table sumcheck (2x); batch inversion ~3 multiplications per element"
+verifier:
+  per_round_us: 1
+  per_opening_us: 20
+  basis: "log-size sumcheck checks on a CPU; batched hash-based opening checks"
+devices:
+  gpu_rtx4090:
+    kind: "gpu"
+    memory_GiB: 24
+    app_budget_GiB: 20
+    unified: false
+    int8_tops_nominal: 660.6
+    int8_efficiency: 0.3
+    mem_bw_GBps_nominal: 1008
+    mem_efficiency: 0.7
+    sc_elems_per_s: 2.205e+10
+    commit_GBps: 4
+    hash_GBps: 20
+    link: "pcie4_x16"
+    ssd: "nvme_gen4_x4"
+    evidence:
+      memory_GiB: "hardware probe, docs/PAPER_BRIEF.md 7"
+      app_budget_GiB: "planning budget"
+      int8_tops_nominal: "vendor nominal dense int8"
+      mem_bw_GBps_nominal: "vendor nominal"
+      int8_efficiency: "NORMAL"
+      mem_efficiency: "NORMAL"
+      sc_elems_per_s: "NORMAL"
+      commit_GBps: "NORMAL"
+      hash_GBps: "NORMAL"
+    basis:
+      sc_elems_per_s: "bandwidth-bound: nominal DRAM bandwidth x 0.7 / 32 B per work element"
+      commit_GBps: "order-of-magnitude assumption for GPU RS-encode + Merkle hashing"
+      hash_GBps: "order-of-magnitude assumption for a GPU digest"
+  gpu_rtx6000ada:
+    kind: "gpu"
+    memory_GiB: 48
+    app_budget_GiB: 40
+    unified: false
+    int8_tops_nominal: 728
+    int8_efficiency: 0.3
+    mem_bw_GBps_nominal: 960
+    mem_efficiency: 0.7
+    sc_elems_per_s: 2.1e+10
+    commit_GBps: 4
+    hash_GBps: 20
+    link: "pcie4_x16"
+    ssd: "nvme_gen4_x4"
+    evidence:
+      memory_GiB: "hardware probe, docs/PAPER_BRIEF.md"
+      app_budget_GiB: "planning budget"
+      int8_tops_nominal: "vendor nominal dense int8"
+      mem_bw_GBps_nominal: "vendor nominal"
+      sc_elems_per_s: "NORMAL"
+      commit_GBps: "NORMAL"
+      hash_GBps: "NORMAL"
+    basis:
+      sc_elems_per_s: "bandwidth-bound, as for gpu_rtx4090"
+  cpu_i9_14900k:
+    kind: "cpu"
+    memory_GiB: 192
+    app_budget_GiB: 128
+    unified: true
+    int8_tops_nominal: 4
+    int8_efficiency: 0.5
+    mem_bw_GBps_nominal: 64
+    mem_efficiency: 0.7
+    sc_pairs_per_s: 1.89471e+08
+    sc_elems_per_s: 3.78941e+08
+    commit_GBps: 1
+    hash_GBps: 5
+    aes_gcm_GBps: 10
+    link: null
+    ssd: "nvme_gen4_x4"
+    evidence:
+      memory_GiB: "hardware probe"
+      mem_bw_GBps_nominal: "DDR5-4000 x 2 channels x 8 B"
+      int8_tops_nominal: "AVX-VNNI class"
+      sc_pairs_per_s: "NORMAL"
+      sc_elems_per_s: "x2 conversion ANALYTIC"
+      commit_GBps: "NORMAL"
+      hash_GBps: "NORMAL"
+      aes_gcm_GBps: "NORMAL (AES-NI, multi-core)"
+    basis:
+      sc_elems_per_s: "results/raw/kernels/cpu_bench.json: fused, gcc, n=22, threads=32, median pairs/s (host contended=True); x2 table entries per pair"
+  edge_unified_16g:
+    kind: "edge"
+    memory_GiB: 16
+    app_budget_GiB: 16
+    unified: true
+    int8_tops_nominal: 50
+    int8_efficiency: 0.3
+    mem_bw_GBps_nominal: 102.4
+    mem_efficiency: 0.7
+    sc_elems_per_s: 2.24e+09
+    commit_GBps: 0.5
+    hash_GBps: 2
+    aes_gcm_GBps: 2
+    link: null
+    ssd: "nvme_edge"
+    evidence:
+      all: "NORMAL (Orin-NX-class unified LPDDR5 SoC, vendor-class nominal, verify)"
+    basis:
+      sc_elems_per_s: "bandwidth-bound: 102.4 GB/s x 0.7 / 32 B"
+  edge_unified_8g:
+    kind: "edge"
+    memory_GiB: 8
+    app_budget_GiB: 8
+    unified: true
+    int8_tops_nominal: 50
+    int8_efficiency: 0.3
+    mem_bw_GBps_nominal: 102.4
+    mem_efficiency: 0.7
+    sc_elems_per_s: 2.24e+09
+    commit_GBps: 0.5
+    hash_GBps: 2
+    aes_gcm_GBps: 2
+    link: null
+    ssd: "nvme_edge"
+    evidence:
+      all: "NORMAL (8 GiB variant of edge_unified_16g)"
+    basis:
+      sc_elems_per_s: "as edge_unified_16g"
+  fpga_zcu102_sumfold:
+    kind: "fpga"
+    lanes: 4
+    clock_MHz: 150
+    sc_elems_per_s: 7.71617e+08
+    onchip_max_log2_n: 16
+    link: "eth_1g"
+    control_link: "jtag_axi"
+    evidence:
+      sc_elems_per_s: "NORMAL"
+      onchip_max_log2_n: "NORMAL"
+      lanes: "NORMAL"
+      clock_MHz: "NORMAL"
+    basis:
+      sc_elems_per_s: "cycles from results/raw/fpga_sim/sim_results.json (SIMULATION, L=4, n=16, 25480 cycles) x assumed 150 MHz clock; x2 table entries per pair"
+      onchip_max_log2_n: "2N x 128 bit resident must fit XCZU9EG block RAM (912 x 36 Kb, no UltraRAM): N = 2^16 fits, 2^17 does not"
+links:
+  pcie4_x16:
+    nominal_GBps: 31.508
+    sustained_fraction: 0.8
+    evidence: "ANALYTIC nominal (16 GT/s x 16 lanes x 128/130); sustained_fraction"
+  nvme_gen4_x4:
+    nominal_GBps: 7.877
+    read_GBps: 5
+    write_GBps: 3
+    evidence: "ANALYTIC link bound; read/write sustained (Gen4 NVMe class)"
+  nvme_edge:
+    nominal_GBps: 7.877
+    read_GBps: 3
+    write_GBps: 2
+    evidence: "ANALYTIC link bound; read/write sustained"
+  eth_2g5:
+    nominal_GBps: 0.3125
+    evidence: "ANALYTIC nominal (2.5 Gb/s / 8)"
+  eth_1g:
+    nominal_GBps: 0.125
+    evidence: "ANALYTIC nominal (1 Gb/s / 8)"
+  jtag_axi:
+    nominal_GBps: 0.002
+    evidence: "JTAG-to-AXI register access, ~2 MB/s"
+storage:
+  spill_budget_GB: 500
+  evidence: "ANALYTIC (planning budget for bounded witness scratch)"
+host:
+  app_budget_GiB: 128
+  evidence: "ANALYTIC (planning budget)"

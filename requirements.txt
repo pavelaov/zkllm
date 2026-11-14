@@ -1,0 +1,6 @@
+# Core (CPU-only) dependencies. Every functional claim runs with these two packages.
+numpy>=1.24
+pyyaml>=6.0
+
+# Optional, GPU runs only (RTX 6000 Ada / any CUDA 8.9 GPU), install explicitly:
+#   pip install cupy-cuda12x

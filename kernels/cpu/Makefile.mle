@@ -1,0 +1,14 @@
+# POSIX build of the MLE / matmul-sumcheck shared library (gcc + OpenMP). Windows (as used for the results): see build_mle_dll.bat or src/edgecert/prover_adapters/matmul_sumcheck.py::build_mle_lib (builds automatically). The existing sumfold_cpu executable (Makefile) is not affected.
+CC      ?= gcc
+CFLAGS  ?= -O3 -march=native -funroll-loops -fopenmp -std=gnu11 -Wall
+SRCS     = mle.c sumfold.c sha256.c
+HDRS     = mle.h gl_field.h sumfold.h sha256.h
+
+build/libedgecert_mle.so: $(SRCS) $(HDRS)
+	mkdir -p build
+	$(CC) $(CFLAGS) -fPIC -shared -DMLE_BUILD_FLAGS='"$(CFLAGS)"' -o $@ $(SRCS)
+
+clean-mle:
+	rm -f build/libedgecert_mle.so
+
+.PHONY: clean-mle

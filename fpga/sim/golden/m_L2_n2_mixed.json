@@ -1,0 +1,54 @@
+{
+ "name": "m_L2_n2_mixed",
+ "lanes": 2,
+ "n": 2,
+ "mem": 1,
+ "step": 0,
+ "seed_f": "0000000000000001",
+ "seed_g": "0000000000000002",
+ "device_rounds": 1,
+ "golden": {
+  "n": 2,
+  "lanes": 2,
+  "device_rounds": 1,
+  "claim": "a9219be95ef220057ac99a6ceca7adaa",
+  "challenges": [
+   "78fde42161fe59a8069d9d0fe7b72f11"
+  ],
+  "msgs": [
+   [
+    "46c7f061432b94009b4951223332481c",
+    "6259ab881bc68c05df804949b975658f",
+    "f40c35bc6085f3cf25fbdd5f0f671931"
+   ]
+  ],
+  "lane_final_f": [
+   "307ff30de5e695c2bbd1235288b1082e",
+   "c3504ce18982b81da165ff4cfe38148b"
+  ],
+  "lane_final_g": [
+   "82ea5fd1980ad3cfd6bcc2339a9d97b9",
+   "5ce5d6872ea26f7e875a9b3716da800e"
+  ],
+  "full_final_f": "68d0637f8f2e3949e2e135b54e6ed4e4",
+  "full_final_g": "e02fb74bc0f1d8e25d2e60785e475d50",
+  "all_challenges": [
+   "78fde42161fe59a8069d9d0fe7b72f11",
+   "59c744e951bc7f4afaeb286b33610a1e"
+  ],
+  "all_msgs": [
+   [
+    "46c7f061432b94009b4951223332481c",
+    "6259ab881bc68c05df804949b975658f",
+    "f40c35bc6085f3cf25fbdd5f0f671931"
+   ],
+   [
+    "d05ffb13ce4983810618444a52ecb8de",
+    "ddbaaedfcaa7abc09e0d840e3753b2f7",
+    "a5d3f0c5dd9f68838a46a8c065716e08"
+   ]
+  ],
+  "seed_f": "0000000000000001",
+  "seed_g": "0000000000000002"
+ }
+}

@@ -1,0 +1,82 @@
+{
+ "name": "g_L1_n4",
+ "lanes": 1,
+ "n": 4,
+ "mem": 0,
+ "step": 0,
+ "seed_f": "0123456789abcdef",
+ "seed_g": "fedcba9876543210",
+ "device_rounds": 4,
+ "golden": {
+  "n": 4,
+  "lanes": 1,
+  "device_rounds": 4,
+  "claim": "000000000000000052c0ba124e5a92e4",
+  "challenges": [
+   "7c33d3e7986cc403f26b7c69679f7363",
+   "99790771c1a4c5a9abd3deabc210c1ad",
+   "7ae6f5d3dc51212bcff8f303271fdc17",
+   "b3d10e58fd982b33a55a3c60e8477f2a"
+  ],
+  "msgs": [
+   [
+    "0000000000000000c2556a374919e9e4",
+    "0000000000000000906b4fda0540a901",
+    "00000000000000000829a79a75ff9ec4"
+   ],
+   [
+    "acb1573dd42633a107dfba9841f9459a",
+    "901fa854690047538bbc753b05a6f6ca",
+    "92c1debf757cdf09d91525667724cc40"
+   ],
+   [
+    "7124b787b297eb731e9529c4f6df2daf",
+    "ddbe5e2bc85cfe4980ac63c5048e4a07",
+    "a0b7b8164fff2229f7ec650204f35d0b"
+   ],
+   [
+    "4dc451ec31194536bb727a102a110ad8",
+    "b3d1967ffa7844d18243ed319390ef2a",
+    "d1a9b8462477ace899adf046a0223fd1"
+   ]
+  ],
+  "lane_final_f": [
+   "cdd4d760891e4e88b041390e48aaa5a5"
+  ],
+  "lane_final_g": [
+   "7254e3ae256942149799043c0775d647"
+  ],
+  "full_final_f": "cdd4d760891e4e88b041390e48aaa5a5",
+  "full_final_g": "7254e3ae256942149799043c0775d647",
+  "all_challenges": [
+   "7c33d3e7986cc403f26b7c69679f7363",
+   "99790771c1a4c5a9abd3deabc210c1ad",
+   "7ae6f5d3dc51212bcff8f303271fdc17",
+   "b3d10e58fd982b33a55a3c60e8477f2a"
+  ],
+  "all_msgs": [
+   [
+    "0000000000000000c2556a374919e9e4",
+    "0000000000000000906b4fda0540a901",
+    "00000000000000000829a79a75ff9ec4"
+   ],
+   [
+    "acb1573dd42633a107dfba9841f9459a",
+    "901fa854690047538bbc753b05a6f6ca",
+    "92c1debf757cdf09d91525667724cc40"
+   ],
+   [
+    "7124b787b297eb731e9529c4f6df2daf",
+    "ddbe5e2bc85cfe4980ac63c5048e4a07",
+    "a0b7b8164fff2229f7ec650204f35d0b"
+   ],
+   [
+    "4dc451ec31194536bb727a102a110ad8",
+    "b3d1967ffa7844d18243ed319390ef2a",
+    "d1a9b8462477ace899adf046a0223fd1"
+   ]
+  ],
+  "seed_f": "0123456789abcdef",
+  "seed_g": "fedcba9876543210"
+ }
+}

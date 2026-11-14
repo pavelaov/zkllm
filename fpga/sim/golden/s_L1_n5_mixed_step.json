@@ -1,0 +1,94 @@
+{
+ "name": "s_L1_n5_mixed_step",
+ "lanes": 1,
+ "n": 5,
+ "mem": 1,
+ "step": 1,
+ "seed_f": "0000000000000001",
+ "seed_g": "0000000000000002",
+ "device_rounds": 5,
+ "golden": {
+  "n": 5,
+  "lanes": 1,
+  "device_rounds": 5,
+  "claim": "f8a1b77ba8e6fc12091e54f2ab6fc54c",
+  "challenges": [
+   "9174168c1d1cca5f1b1fb13ebbef06ed",
+   "1694a838c8a61ad9790cbda5cd6ede5d",
+   "ca161e403bed3a190c9295eeadc325c7",
+   "231d22af5ea63a25bac2cf7fe4699d7e",
+   "07a4a2e996b30946cd02bab955beb9dc"
+  ],
+  "msgs": [
+   [
+    "10e65548399361f12c8beb3c71656cb3",
+    "e7bb62336f539a21dc9269b53a0a589a",
+    "5143bc28c89adbc7f9d05ec6b249298e"
+   ],
+   [
+    "2e9a1c893355c7d9c2d7f537e5e613ba",
+    "c27ce4c4274615b6d47e09fced0c332a",
+    "aa6e8c963533c290bc82095e6f5ecea4"
+   ],
+   [
+    "d1caae373423c244da06fb11f5dc19b2",
+    "f03edc8095420eab5943a4dbf38c20ef",
+    "1cc18460a25d595127e13651229a3f05"
+   ],
+   [
+    "9e95b210500bb6f877c9647289d0862b",
+    "148dde670fb84e232917d604c0988cf5",
+    "bfe8082db2bd58b80828cc59e2a27212"
+   ],
+   [
+    "538870ae91b206937bfbc856f6faa6d2",
+    "5f116edda33346cdb1ca45d8e815fe31",
+    "6475abaa785366a6f596bf917ec27c81"
+   ]
+  ],
+  "lane_final_f": [
+   "706c488982bf3f38feaf4e081c80f0d3"
+  ],
+  "lane_final_g": [
+   "4ff25037d7fda6b640d27deb77993caa"
+  ],
+  "full_final_f": "706c488982bf3f38feaf4e081c80f0d3",
+  "full_final_g": "4ff25037d7fda6b640d27deb77993caa",
+  "all_challenges": [
+   "9174168c1d1cca5f1b1fb13ebbef06ed",
+   "1694a838c8a61ad9790cbda5cd6ede5d",
+   "ca161e403bed3a190c9295eeadc325c7",
+   "231d22af5ea63a25bac2cf7fe4699d7e",
+   "07a4a2e996b30946cd02bab955beb9dc"
+  ],
+  "all_msgs": [
+   [
+    "10e65548399361f12c8beb3c71656cb3",
+    "e7bb62336f539a21dc9269b53a0a589a",
+    "5143bc28c89adbc7f9d05ec6b249298e"
+   ],
+   [
+    "2e9a1c893355c7d9c2d7f537e5e613ba",
+    "c27ce4c4274615b6d47e09fced0c332a",
+    "aa6e8c963533c290bc82095e6f5ecea4"
+   ],
+   [
+    "d1caae373423c244da06fb11f5dc19b2",
+    "f03edc8095420eab5943a4dbf38c20ef",
+    "1cc18460a25d595127e13651229a3f05"
+   ],
+   [
+    "9e95b210500bb6f877c9647289d0862b",
+    "148dde670fb84e232917d604c0988cf5",
+    "bfe8082db2bd58b80828cc59e2a27212"
+   ],
+   [
+    "538870ae91b206937bfbc856f6faa6d2",
+    "5f116edda33346cdb1ca45d8e815fe31",
+    "6475abaa785366a6f596bf917ec27c81"
+   ]
+  ],
+  "seed_f": "0000000000000001",
+  "seed_g": "0000000000000002"
+ }
+}
